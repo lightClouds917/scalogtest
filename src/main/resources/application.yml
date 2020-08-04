@@ -3,13 +3,19 @@ spring:
     mongodb:
       uri: mongodb://scalog:scalog_NB_$713!@210.22.22.150:2091/scalog
   datasource:
+#    mysql
     name: test
-    url: jdbc:mysql://192.168.173.95:3306/credit_server?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true
-    username: root
-    password: runlion@123
+#    url: jdbc:mysql://xxx:3306/credit_server?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true
+#    username: root
+#    password: xxx
+#    driver-class-name: com.mysql.jdbc.Driver
+    #    postgresql
+    url: jdbc:postgresql://xxx:5432/middleground?stringtype=unspecified
+    username: dbadmin
+    password: xxx
+    driver-class-name: org.postgresql.Driver
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
     filters: stat
     maxActive: 15
     initialSize: 3
@@ -30,6 +36,7 @@ scalog:
   organizationName: 谷歌开源组织
   companyName: 谷歌杭州分公司
   projectName: 棱镜项目
-  db: mysql
+#  db: mysql
+  db: postgresql
 server:
   port: 1111
