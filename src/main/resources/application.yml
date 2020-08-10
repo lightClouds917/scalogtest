@@ -5,14 +5,14 @@ spring:
   datasource:
 #    mysql
     name: test
-#    url: jdbc:mysql://xxx:3306/credit_server?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true
+#    url: jdbc:mysql://192.168.173.95:3306/credit_server?useUnicode=true&characterEncoding=UTF8&allowMultiQueries=true
 #    username: root
-#    password: xxx
+#    password: runlion@123
 #    driver-class-name: com.mysql.jdbc.Driver
     #    postgresql
-    url: jdbc:postgresql://xxx:5432/middleground?stringtype=unspecified
+    url: jdbc:postgresql://192.168.173.239:5432/middleground?stringtype=unspecified
     username: dbadmin
-    password: xxx
+    password: runlion-mid-123
     driver-class-name: org.postgresql.Driver
     # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource

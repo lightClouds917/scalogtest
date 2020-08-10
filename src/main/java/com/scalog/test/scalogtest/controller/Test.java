@@ -23,16 +23,36 @@ public class Test {
     private Environment environment;
 
     /**
-     * 测试url:http://localhost:1111/test/test?name=aaaaaaaa
+     * 测试url:http://localhost:1111/testPublic/test?name=aaaaaaaa
      * @param name
      * @return
      * @throws Exception
      */
-    @LogInfo(moduleName = "金融模块",functionName = "扣减授信",remark = "测试用的")
-    @GetMapping("test")
-    public String test(String name) throws Exception {
+    @LogInfo(moduleName = "金融模块",functionName = "测试方法级别",remark = "public方法")
+    @GetMapping("testPublic")
+    public String testPublic(String name) throws Exception {
         System.out.println("执行成功:"+ LocalDateTime.now().toString()+":" +name);
         System.out.println(environment.getProperty("scalog.countryName"));
+        return "执行成功:"+ LocalDateTime.now().toString()+":" +name;
+    }
+
+    @LogInfo(moduleName = "金融模块",functionName = "测试方法级别",remark = "private方法")
+    @GetMapping("testPrivate")
+    private String testPrivate(String name){
+        System.out.println("执行成功:"+ LocalDateTime.now().toString()+":" +name);
+        return "执行成功:"+ LocalDateTime.now().toString()+":" +name;
+    }
+
+    @LogInfo(moduleName = "金融模块",functionName = "测试方法级别",remark = "protected方法")
+    @GetMapping("testProtected")
+    protected String testProtected(String name){
+        System.out.println("执行成功:"+ LocalDateTime.now().toString()+":" +name);
+        return "执行成功:"+ LocalDateTime.now().toString()+":" +name;
+    }
+
+    @GetMapping("testno")
+    public String testno(String name){
+        System.out.println("执行成功:"+ LocalDateTime.now().toString()+":" +name);
         return "执行成功:"+ LocalDateTime.now().toString()+":" +name;
     }
 
