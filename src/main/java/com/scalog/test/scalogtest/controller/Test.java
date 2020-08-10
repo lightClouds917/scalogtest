@@ -31,29 +31,35 @@ public class Test {
     @LogInfo(moduleName = "金融模块",functionName = "测试方法级别",remark = "public方法")
     @GetMapping("testPublic")
     public String testPublic(String name) throws Exception {
-        System.out.println("执行成功:"+ LocalDateTime.now().toString()+":" +name);
+        System.out.println("testPublic执行成功:"+ LocalDateTime.now().toString()+":" +name);
         System.out.println(environment.getProperty("scalog.countryName"));
-        return "执行成功:"+ LocalDateTime.now().toString()+":" +name;
+        return "testPublic执行成功:"+ LocalDateTime.now().toString()+":" +name;
     }
 
     @LogInfo(moduleName = "金融模块",functionName = "测试方法级别",remark = "private方法")
     @GetMapping("testPrivate")
     private String testPrivate(String name){
-        System.out.println("执行成功:"+ LocalDateTime.now().toString()+":" +name);
-        return "执行成功:"+ LocalDateTime.now().toString()+":" +name;
+        System.out.println("testPrivate执行成功:"+ LocalDateTime.now().toString()+":" +name);
+        return "testPrivate执行成功:"+ LocalDateTime.now().toString()+":" +name;
     }
 
     @LogInfo(moduleName = "金融模块",functionName = "测试方法级别",remark = "protected方法")
     @GetMapping("testProtected")
     protected String testProtected(String name){
-        System.out.println("执行成功:"+ LocalDateTime.now().toString()+":" +name);
-        return "执行成功:"+ LocalDateTime.now().toString()+":" +name;
+        System.out.println("testProtected执行成功:"+ LocalDateTime.now().toString()+":" +name);
+        return "testProtected执行成功:"+ LocalDateTime.now().toString()+":" +name;
     }
 
     @GetMapping("testno")
     public String testno(String name){
-        System.out.println("执行成功:"+ LocalDateTime.now().toString()+":" +name);
-        return "执行成功:"+ LocalDateTime.now().toString()+":" +name;
+        System.out.println("testno执行成功:"+ LocalDateTime.now().toString()+":" +name);
+        return "testno执行成功:"+ LocalDateTime.now().toString()+":" +name;
+    }
+
+    @GetMapping("testentity")
+    public String testEntity(Credit credit){
+        System.out.println("testentity执行成功:"+ LocalDateTime.now().toString()+":" +credit.toString());
+        return "testentity执行成功:"+ LocalDateTime.now().toString()+":" +credit.toString();
     }
 
 }
