@@ -2,9 +2,6 @@ package com.scalog.test.scalogtest.controller;
 
 import com.java4all.scalog.annotation.LogInfo;
 import java.time.LocalDateTime;
-import java.util.Map;
-import java.util.ServiceLoader;
-import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +18,11 @@ public class Test {
 
     @Autowired
     private Environment environment;
+    /**异常生效开关*/
+    private static int ERROR = 1;
 
     /**
-     * 测试url:http://localhost:1111/testPublic/test?name=aaaaaaaa
+     * 测试url:http://localhost:1111/test/testPublic?name=aaaaaaaa
      * @param name
      * @return
      * @throws Exception
@@ -33,6 +32,9 @@ public class Test {
     public String testPublic(String name) throws Exception {
         System.out.println("testPublic执行成功:"+ LocalDateTime.now().toString()+":" +name);
         System.out.println(environment.getProperty("scalog.countryName"));
+        if(ERROR == 1){
+            throw new RuntimeException("public报错了");
+        }
         return "testPublic执行成功:"+ LocalDateTime.now().toString()+":" +name;
     }
 
@@ -40,6 +42,9 @@ public class Test {
     @GetMapping("testPrivate")
     private String testPrivate(String name){
         System.out.println("testPrivate执行成功:"+ LocalDateTime.now().toString()+":" +name);
+        if(ERROR == 1){
+            int a = 10/0;
+        }
         return "testPrivate执行成功:"+ LocalDateTime.now().toString()+":" +name;
     }
 
@@ -47,6 +52,10 @@ public class Test {
     @GetMapping("testProtected")
     protected String testProtected(String name){
         System.out.println("testProtected执行成功:"+ LocalDateTime.now().toString()+":" +name);
+        if(ERROR == 1){
+            String s = null;
+            String substring = s.substring(0, 6);
+        }
         return "testProtected执行成功:"+ LocalDateTime.now().toString()+":" +name;
     }
 
@@ -61,7 +70,6 @@ public class Test {
         System.out.println("testentity执行成功:"+ LocalDateTime.now().toString()+":" +credit.toString());
         return "testentity执行成功:"+ LocalDateTime.now().toString()+":" +credit.toString();
     }
-
 }
 
 

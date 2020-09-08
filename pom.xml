@@ -23,7 +23,6 @@
     <dependency>
       <groupId>com.java4all</groupId>
       <artifactId>scalog</artifactId>
-<!--      <version>1.0.0-RELEASE</version>-->
       <version>1.2.0-SNAPSHOT</version>
       <scope>system</scope>
       <systemPath>F:/java4all/scalog/target/scalog-1.2.0-SNAPSHOT.jar</systemPath>
@@ -40,18 +39,17 @@
 <!--      <groupId>org.springframework.boot</groupId>-->
 <!--      <artifactId>spring-boot-starter-data-mongodb</artifactId>-->
 <!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.mongodb</groupId>-->
-<!--      <artifactId>mongo-java-driver</artifactId>-->
-<!--      <version>3.5.0</version>-->
-<!--&lt;!&ndash;      <scope>provided</scope>&ndash;&gt;-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>org.mongodb</groupId>
+      <artifactId>mongo-java-driver</artifactId>
+      <version>3.5.0</version>
+    </dependency>
 
-<!--    <dependency>-->
-<!--      <groupId>mysql</groupId>-->
-<!--      <artifactId>mysql-connector-java</artifactId>-->
-<!--      <version>5.1.30</version>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.30</version>
+    </dependency>
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
